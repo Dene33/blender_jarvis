@@ -3,6 +3,10 @@ Control Blender through text prompts with help of ChatGPT
 
 Based on unofficial ChatGPT API: https://github.com/acheong08/ChatGPT
 
+
+https://user-images.githubusercontent.com/27821127/206820527-1f2d768d-0b19-463d-bf4a-9e096c519fdf.mp4
+
+
 ## Installation
 Download the most recent release .zip and install it as an ordinary Blender add-on
 

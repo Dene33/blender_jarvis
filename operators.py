@@ -32,7 +32,7 @@ class SendPromptToChatgpt(bpy.types.Operator):
         # print(response['message'])
 
         # Create a new text data block
-        new_text_block = bpy.data.texts.new(bpy.context.scene.input_text_prompt)
+        new_text_block = bpy.data.texts.new(bpy.context.scene.blender_jarvis.input_text_prompt)
 
         # Modify the text in the new text block
         new_text_block.write(code_block)

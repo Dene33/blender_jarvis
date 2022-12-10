@@ -37,5 +37,5 @@ class MDMToBlenderProperties(bpy.types.PropertyGroup):
         bpy.types.Scene.blender_jarvis = bpy.props.PointerProperty(type=MDMToBlenderProperties)
 
     def unregister():
-        del bpy.types.Scene.blender_jarvis
+        del bpy.context.scene.blender_jarvis
 

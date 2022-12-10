@@ -9,15 +9,17 @@ class SendPromptToChatgpt(bpy.types.Operator):
     bl_idname = "blender_jarvis.send_prompt_to_chatgpt"
 
     def execute(self, context):
-        print(type(bpy.context.scene.session_token))
-        config = {
-            # "email": "<YOUR_EMAIL>",
-            # "password": "<YOUR_PASSWORD>"#,
-            "session_token": bpy.context.scene.session_token, # Deprecated. Use only if you encounter captcha with email/password
-            #"proxy": "<HTTP/HTTPS_PROXY>"
-        }
+        if bpy.context.scene.blender_jarvis.auth_method == 'TOKEN':
+            config = {
+                "session_token": bpy.context.scene.blender_jarvis.session_token
+            }
+        elif bpy.context.scene.blender_jarvis.auth_method == 'PASSWORD':
+            config = {
+                "email": bpy.context.scene.blender_jarvis.email,
+                "password": bpy.context.scene.blender_jarvis.password,
+            }
 
-        text_prompt = f'Generate Python code for Blender {bpy.app.version_string} with the following: {bpy.context.scene.input_text_prompt}. Output only the code without explanations'
+        text_prompt = f'Generate Python code for Blender {bpy.app.version_string} with the following: {bpy.context.scene.blender_jarvis.input_text_prompt}. Output only the code without explanations'
 
         # if not bpy.context.scene.chatbot:
         global chatbot

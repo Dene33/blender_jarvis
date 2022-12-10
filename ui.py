@@ -1,4 +1,5 @@
 import bpy
+from properties import MDMToBlenderProperties
 
 class BlenderJarvisPanel(bpy.types.Panel):
     bl_label = "Blender J.A.R.V.I.S."
@@ -9,12 +10,17 @@ class BlenderJarvisPanel(bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
+        layout.prop(context.scene.blender_jarvis, "auth_method")
 
-        # Create a auth token
-        layout.prop(context.scene, "session_token")
+        if bpy.context.scene.blender_jarvis.auth_method == 'TOKEN':
+            # Create a auth token
+            layout.prop(context.scene.blender_jarvis, "session_token")
+        elif bpy.context.scene.blender_jarvis.auth_method == 'PASSWORD':
+            layout.prop(context.scene.blender_jarvis, "email")
+            layout.prop(context.scene.blender_jarvis, "password")
 
         # Create a text input field
-        layout.prop(context.scene, "input_text_prompt")
+        layout.prop(context.scene.blender_jarvis, "input_text_prompt")
 
         # Create a button
         layout.operator("blender_jarvis.send_prompt_to_chatgpt")

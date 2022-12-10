@@ -11,7 +11,7 @@ Download the most recent release .zip and install it as an ordinary Blender add-
 
 ## Usage
 
-1. Provide your [session token](https://github.com/acheong08/ChatGPT/wiki/Setup#session-token-authentication)
+1. Provide your [session token](https://github.com/acheong08/ChatGPT/wiki/Setup#session-token-authentication) or input your ChatGPT Email and password
 2. Input your text prompt and hit `Blender J.A.R.V.I.S.` button
 
 **Please note that this add-on is meant to demonstrate a proof of concept, and should not be used for production use.**

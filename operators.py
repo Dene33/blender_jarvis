@@ -26,7 +26,12 @@ class SendPromptToChatgpt(bpy.types.Operator):
         if not chatbot:
             chatbot = Chatbot(config, conversation_id=None)
 
-        response = chatbot.get_chat_response(text_prompt, output="text")
+        try:
+            response = chatbot.get_chat_response(text_prompt, output="text")
+        except:
+            chatbot.refresh_session()
+            response = chatbot.get_chat_response(text_prompt, output="text")
+            
         code_block = response['message'].split('```')[1]
 
         # print(response['message'])

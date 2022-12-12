@@ -7,6 +7,7 @@ class SendPromptToChatgpt(bpy.types.Operator):
     """Send text prompt to Chatgpt"""
     bl_label = "Blender J.A.R.V.I.S."
     bl_idname = "blender_jarvis.send_prompt_to_chatgpt"
+    bl_options = {'REGISTER', "UNDO"} # Add "UNDO" option here
 
     def execute(self, context):
         if bpy.context.scene.blender_jarvis.auth_method == 'TOKEN':

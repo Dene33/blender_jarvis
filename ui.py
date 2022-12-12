@@ -1,5 +1,4 @@
 import bpy
-from properties import MDMToBlenderProperties
 
 class BlenderJarvisPanel(bpy.types.Panel):
     bl_label = "Blender J.A.R.V.I.S."
